@@ -216,7 +216,7 @@ public  class Analyze {
 	
 	
 	
-	public static void walkForward() throws Exception {
+	public static void walkForward() throws IOException {
 		
 		
 		ArffSaver saver = convert(pathDir);
@@ -247,8 +247,10 @@ public  class Analyze {
 		    
 		    DataSource trainSource;
 		    trainSource = new DataSource(training);
-    		Instances trainingNoFilter = trainSource.getDataSet();
-    		
+    		Instances trainingNoFilter;
+			try {
+				trainingNoFilter = trainSource.getDataSet();
+
     		DataSource testSource = new DataSource(testing);
     		Instances testingNoFilter = testSource.getDataSet();
     		
@@ -307,8 +309,12 @@ public  class Analyze {
 		
 
 		
+	}		
+	catch (Exception e) {
+		logger.severe(e.toString());
 	}
-
+	
+	}
 	createCsv(records);
 		
 		

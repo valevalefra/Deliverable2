@@ -334,7 +334,7 @@ public class RetrieveTicketsInfo {
 			
 		}
 		//delete duplicate files
-		filteredFiles=new ArrayList<>(new LinkedHashSet<String>(rawFiles));
+		filteredFiles=new ArrayList<>(new LinkedHashSet<>(rawFiles));
 		
 		
 	}
